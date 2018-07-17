@@ -1,6 +1,7 @@
 let express = require('express');
 let app=express();
 let hbs = require('hbs');
+let port = process.env.PORT||3000;
 app.use(express.static(__dirname+'/public'));
 
 
@@ -32,4 +33,6 @@ app.get('/bad',(req,res)=>{
     res.send();
 });
 
-app.listen(3000);
+app.listen(port,()=>{
+    console.log(`Server is on ${port}`);
+});
