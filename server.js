@@ -8,17 +8,12 @@ app.use(express.static(__dirname+'/public'));
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('view engine','hbs');
 
-app.use('/',function(req,res,next){
-    res.send('here');
-   // next();
-});
-
-app.get('/',(req,res)=>{
-    
-    res.send({name:'hugh',age:13});
-});
 
 app.get('/home',function(req,res){
+    res.render('home.hbs',{pageTitle:'Home'});
+});
+
+app.get('/',function(req,res){
     res.render('home.hbs',{pageTitle:'Home'});
 });
 
